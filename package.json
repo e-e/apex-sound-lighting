@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "Homepage for Apex Sound & Lighting of Minneapolis, MN",
   "scripts": {
+    "start": "node index.js",
     "dev": "node index.js"
   },
   "main": "index.js",

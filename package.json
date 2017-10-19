@@ -11,6 +11,12 @@
   "author": "Eric Ellingson <ellingsonster@gmail.com>",
   "license": "MIT",
   "dependencies": {
-    "express": "^4.16.1"
+    "basic-auth": "^2.0.0",
+    "bcrypt": "^1.0.3",
+    "bootstrap": "^4.0.0-beta",
+    "express": "^4.16.1",
+    "firebase": "^4.5.2",
+    "mongoose": "^4.12.3",
+    "pug": "^2.0.0-rc.4"
   }
 }

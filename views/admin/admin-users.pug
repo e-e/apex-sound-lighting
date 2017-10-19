@@ -1,0 +1,22 @@
+include includes/header.pug
+
+div(class='container')
+  div(class='row')
+    div(class='col text-right')
+      a(href='/admin/admin-users/edit') +New Admin User
+  div(class='row')
+    table(class='table table-striped')
+      thead
+        tr
+          th First Name
+          th Last Name
+          th Username
+          th(class='text-right') Action
+      tbody
+        each user in users
+          tr
+            td= user.firstName
+            td= user.lastName
+            td= user.username
+            td(class='text-right')
+              a(href='/admin/admin-users/edit/'+user._id ) Edit

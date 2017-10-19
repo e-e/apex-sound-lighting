@@ -7,10 +7,14 @@ const routes = require('./routes');
 
 const app = express();
 
+app.set('view engine', 'pug');
+
 app.use('/static', express.static(path.join(__dirname, './static')));
 
 app.use('/song-q', routes.songq);
 app.use('/api', routes.api);
+
+app.use('/admin', routes.admin);
 
 app.use('/', (req, res) => {
   res.sendFile(path.join(__dirname, './views/index.html'));

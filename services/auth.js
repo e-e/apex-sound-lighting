@@ -5,7 +5,7 @@ const config = require('../config');
 mongoose.connect(config.dbURI, { useMongoClient: true });
 require('../models');
 
-const AdminUser = mongoose.model('AdminUser');
+const AdminUser = require('../routes/admin/admin-users/admin-user');
 
 function auth(req, res, next) {
   function unauthorized(res) {

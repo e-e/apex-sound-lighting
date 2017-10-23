@@ -8,7 +8,7 @@ router.use(
   express.static(path.join(__dirname, '../../node_modules/bootstrap/dist'))
 );
 
-router.use('/admin-users', require('./admin-users'));
+router.use('/admin-users', require('./admin-users/admin-user-controller'));
 
 router.get('/', auth, (req, res) => {
   res.render('admin/index', {

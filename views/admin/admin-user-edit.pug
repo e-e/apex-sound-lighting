@@ -9,7 +9,7 @@ div(class='container')
         div(class='col-sm form-group')
           label(for='first-name') First Name
           input(class="form-control" type='text' id='first-name' name='first-name' value=user && user.firstName ? user.firstName : '')
-        
+
         div(class='col-sm form-group')
           label(for='last-name') Last Name
           input(class="form-control" type='text' id='last-name' name='last-name' value=user && user.lastName ? user.lastName : '')
@@ -18,13 +18,13 @@ div(class='container')
         div(class='col-sm form-group')
           label(for='username') Username
           input(class="form-control" type='text' id='username' name='username' value=user && user.username ? user.username : '')
-        
+
         div(class='col-sm form-group')
           label(for='password') Password
           input(class="form-control" type='password' id='password' name='password')
-      
+
       div(class='row')
         div(class='col')
           div(class='btn-group pull-right')
-            a(class='btn btn-light' href='/admin/admin-users') Cancel
             button(class='btn btn-primary') Save
+            a(class='btn btn-light' href='/admin/admin-users') Cancel

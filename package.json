@@ -4,7 +4,7 @@
   "description": "Homepage for Apex Sound & Lighting of Minneapolis, MN",
   "scripts": {
     "start": "node index.js",
-    "dev": "node index.js"
+    "dev": "nodemon index.js"
   },
   "main": "index.js",
   "repository": "https://github.com/e-e/apex-sound-lighting",
@@ -17,6 +17,8 @@
     "express": "^4.16.1",
     "firebase": "^4.5.2",
     "mongoose": "^4.12.3",
-    "pug": "^2.0.0-rc.4"
+    "nodemon": "^1.12.1",
+    "pug": "^2.0.0-rc.4",
+    "winston": "^2.4.0"
   }
 }

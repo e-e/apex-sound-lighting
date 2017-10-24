@@ -2,15 +2,16 @@ const express = require('express');
 const router = express.Router();
 const bodyParser = require('body-parser');
 
-const auth = require('../../../services/auth');
+const auth = require('../../services/auth');
 
 router.use(bodyParser.urlencoded({ extended: true }));
-const BookingModel = require('../../../models/booking');
-const PAGE_TITLE = 'Apex [Admin] - Booking';
+const AdminUser = require('../../models/admin-user');
+
+const PAGE_TITLE = 'Apex [Admin] - Admin Users';
 
 // CREATES A NEW USER
 router.post('/', auth, function(req, res) {
-  BookingModel.create(
+  AdminUser.create(
     {
       name: req.body.name,
       email: req.body.email,
@@ -28,7 +29,7 @@ router.post('/', auth, function(req, res) {
 
 // GETS A SINGLE USER FROM THE DATABASE AND POPULATE EDIT FORM
 router.get('/edit/:id', auth, function(req, res) {
-  BookingModel.findById(req.params.id, function(err, user) {
+  AdminUser.findById(req.params.id, function(err, user) {
     if (err)
       return res.status(500).send('There was a problem finding the user.');
     if (!user) return res.status(404).send('No user found.');
@@ -51,7 +52,7 @@ router.get('/new', auth, function(req, res) {
 
 // SHOW FORM FOR CREATING NEW USER
 router.post('/new', auth, function(req, res) {
-  BookingModel.create(
+  AdminUser.create(
     {
       firstName: req.body.firstName,
       lastName: req.body.lastName,
@@ -70,21 +71,21 @@ router.post('/new', auth, function(req, res) {
 
 // RETURNS ALL THE USERS IN THE DATABASE
 router.get('/', auth, function(req, res) {
-  BookingModel.find({}, function(err, bookings) {
+  AdminUser.find({}, function(err, users) {
     if (err) {
       return res.status(500).send('There was a problem finding the users.');
     }
-    res.render('admin/booking-list', {
+    res.render('admin/admin-users', {
       title: `${PAGE_TITLE}`,
       error: err,
-      bookings: bookings
+      users: users
     });
   });
 });
 
 // DELETES A USER FROM THE DATABASE
 router.delete('/:id', auth, function(req, res) {
-  BookingModel.findByIdAndRemove(req.params.id, function(err, user) {
+  AdminUser.findByIdAndRemove(req.params.id, function(err, user) {
     if (err)
       return res.status(500).send('There was a problem deleting the user.');
     res.status(200).send('User: ' + user.name + ' was deleted.');
@@ -93,16 +94,14 @@ router.delete('/:id', auth, function(req, res) {
 
 // UPDATES A SINGLE USER IN THE DATABASE
 router.put('/:id', auth, function(req, res) {
-  BookingModel.findByIdAndUpdate(
-    req.params.id,
-    req.body,
-    { new: true },
-    function(err, user) {
-      if (err)
-        return res.status(500).send('There was a problem updating the user.');
-      res.status(200).send(user);
-    }
-  );
+  AdminUser.findByIdAndUpdate(req.params.id, req.body, { new: true }, function(
+    err,
+    user
+  ) {
+    if (err)
+      return res.status(500).send('There was a problem updating the user.');
+    res.status(200).send(user);
+  });
 });
 
 module.exports = router;

@@ -4,21 +4,18 @@ html
     div(class='container-fluid')
       include includes/nav.pug
       div(class='row')
-        div(class='col text-right')
-          a(href='/admin/admin-users/new') +New Admin User
-      div(class='row')
         table(class='table table-striped')
           thead
             tr
-              th First Name
-              th Last Name
-              th Username
+              th Name
+              th Location
+              th Date
               th(class='text-right') Action
           tbody
-            each user in users
+            each booking in bookings
               tr
-                td= user.firstName
-                td= user.lastName
-                td= user.username
+                td= `${booking.firstName} ${booking.lastName}`
+                td= booking.addressHTML()
+                td= booking.dateRequested
                 td(class='text-right')
                   a(href='/admin/admin-users/edit/'+user._id ) Edit

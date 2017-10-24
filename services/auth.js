@@ -3,9 +3,8 @@ const mongoose = require('mongoose');
 const config = require('../config');
 
 mongoose.connect(config.dbURI, { useMongoClient: true });
-require('../models');
 
-const AdminUser = require('../routes/admin/admin-users/admin-user');
+const AdminUser = require('../models/admin-user');
 
 function auth(req, res, next) {
   function unauthorized(res) {

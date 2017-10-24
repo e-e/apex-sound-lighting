@@ -4,18 +4,16 @@ html
     div(class='container-fluid')
       include includes/nav.pug
       div(class='row')
-        div(class='col-6')
+        div(class='col-sm-6 col-xs-12 mb-3')
           div(class='card')
-            //- img(class='card-img-top' src='http://via.placeholder.com/200x150' alt='Card image cap')
             div(class='card-body')
               h4(class='card-title') Manage Admin Users
               p(class='card-text') Manage who can access this Admin area
               a(href='/admin/admin-users' class='btn btn-primary') View
               
-        div(class='col-6')
+        div(class='col-sm-6 col-xs-12')
           div(class='card')
-            //- img(class='card-img-top' src='http://via.placeholder.com/200x150' alt='Card image cap')
             div(class='card-body')
-              h4(class='card-title') Manage Admin Users
-              p(class='card-text') Manage who can access this Admin area
-              a(href='/admin/admin-users' class='btn btn-primary') View
+              h4(class='card-title') Manage Bookings
+              p(class='card-text') Manage Bookings
+              a(href='/admin/booking' class='btn btn-primary') View

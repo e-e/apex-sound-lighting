@@ -9,6 +9,7 @@ router.use(
 );
 
 router.use('/admin-users', require('./admin-users/admin-user-controller'));
+router.use('/booking', require('./booking/booking-controller'));
 
 router.get('/', auth, (req, res) => {
   res.render('admin/index', {

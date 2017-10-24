@@ -1,4 +1,4 @@
-var mongoose = require('mongoose');
+const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
 const { Schema } = mongoose;
 var SALT_WORK_FACTOR = 10;
@@ -9,8 +9,6 @@ const AdminUserSchema = new Schema({
   username: String,
   password: String
 });
-
-mongoose.model('AdminUser', AdminUserSchema);
 
 AdminUserSchema.pre('save', function(next) {
   var user = this;
@@ -35,4 +33,4 @@ AdminUserSchema.methods.comparePassword = function(password, cb) {
   });
 };
 
-module.exports = mongoose.model('AdminUser');
+mongoose.model('AdminUser', AdminUserSchema);

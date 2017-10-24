@@ -16,7 +16,8 @@ adminServer.use('/booking', require('./controllers/booking-controller'));
 adminServer.get('/', auth, (req, res) => {
   res.render('admin/index', {
     title: 'testing',
-    message: 'this is just a message?'
+    message: 'this is just a message?',
+    activePage: 'home'
   });
 });
 

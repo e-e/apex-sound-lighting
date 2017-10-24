@@ -7,6 +7,7 @@ const auth = require('../../services/auth');
 router.use(bodyParser.urlencoded({ extended: true }));
 const BookingModel = require('../../models/booking');
 const PAGE_TITLE = 'Apex [Admin] - Booking';
+const ACTIVE_PAGE = 'booking';
 
 // CREATES A NEW USER
 router.post('/', auth, function(req, res) {
@@ -35,7 +36,8 @@ router.get('/edit/:id', auth, function(req, res) {
     res.render('admin/admin-user-edit', {
       title: `${PAGE_TITLE} - ${user.firstName} ${user.lastName}`,
       error: null,
-      user: user
+      user: user,
+      activePage: ACTIVE_PAGE
     });
   });
 });
@@ -45,7 +47,8 @@ router.get('/new', auth, function(req, res) {
   res.render('admin/admin-user-edit', {
     title: `${PAGE_TITLE}`,
     error: null,
-    user: null
+    user: null,
+    activePage: ACTIVE_PAGE
   });
 });
 
@@ -77,7 +80,8 @@ router.get('/', auth, function(req, res) {
     res.render('admin/booking-list', {
       title: `${PAGE_TITLE}`,
       error: err,
-      bookings: bookings
+      bookings: bookings,
+      activePage: ACTIVE_PAGE
     });
   });
 });

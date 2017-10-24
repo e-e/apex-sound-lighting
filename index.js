@@ -2,13 +2,13 @@ const path = require('path');
 const express = require('express');
 const config = require('./config');
 const adminServer = require('./admin/admin-server');
-const songqueueServer = require('./songqueue/songqueue-server');
+// const songqueueServer = require('./songqueue/songqueue-server');
 const app = express();
 
 app.set('view engine', 'pug');
 
 app.use('/static', express.static(path.join(__dirname, './static')));
-app.use('/song-q', songqueueServer);
+// app.use('/song-q', songqueueServer);
 app.use('/admin', adminServer);
 // app.use('/api', routes.api);
 
